@@ -1,0 +1,139 @@
+﻿<style>
+    * {
+        -webkit-user-select: none;
+        -user-select: none;
+        -webkit-user-drag: none;
+        -user-drag: none;
+    }
+
+    input {
+        -webkit-user-select: initial;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    html,
+    body {
+        background-color: white;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 1em;
+        overflow: hidden;
+    }
+
+    label,
+    input {
+        vertical-align: middle;
+    }
+
+    label,
+    input[type=checkbox],
+    input[type=radio] {
+        cursor: pointer;
+    }
+
+    label {
+        margin-right: 15px;
+        border: 1px dotted black;
+        padding: 3px 5px;
+        border-radius: 3px;
+    }
+
+    input[type=radio] {
+        vertical-align: baseline;
+        margin-right: 8px;
+    }
+
+    select {
+        border: 1px solid black;
+        padding: 0;
+        outline: none !important;
+        border: 1px dotted black;
+        padding: 3px 5px;
+        border-radius: 3px;
+    }
+
+    option {
+        background: white;
+        color: black;
+        text-shadow: none;
+        outline: none !important;
+        padding: 2px 5px;
+        border-bottom: 1px solid black;
+    }
+
+    option:last-child {
+        border-bottom: 0;
+    }
+
+    input[disabled],
+    label[disabled],
+    button[disabled] {
+        cursor: not-allowed !important;
+        color: #bfbfbf !important;
+    }
+
+    #applying-changes {
+        background: yellow;
+        position: fixed;
+        top: 0;
+        left: 0px;
+        right: 0px;
+        width: 100%;
+        text-align: center;
+        color: green;
+        font-weight: bold;
+        display: none;
+        font-size: 24px !important;
+        padding: 0;
+        border-bottom: 1px solid;
+    }
+
+    label:hover {
+        background: yellow;
+    }
+
+    td {
+        padding: 10px 20px;
+    }
+
+    article {
+        width: 750px;
+    }
+
+    h1 {
+        text-align: center;
+        padding: 20px 0;
+        font-weight: normal;
+        font-size: 250%;
+    }
+</style>
+
+<title>Gnp Extension Recoder</title>
+
+<p id="applying-changes">Guardando Cambios...</p>
+
+<article>
+    <h1>Configuración general</h1>
+
+    <table>
+
+        <tr>
+            <td>
+                Seleccionar la fuente de audio:
+            </td>
+
+            <td>
+                <select id="microphone-devices"></select>
+            </td>
+        </tr>
+
+
+    </table>
+
+</article>
+
+<script src="RecordRTC/getAllAudioVideoDevices.js"></script>
+<script src="options.js"></script>

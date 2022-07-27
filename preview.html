@@ -1,0 +1,150 @@
+﻿<style>
+  * {
+    -webkit-user-select: none;
+    -user-select: none;
+    -webkit-user-drag: none;
+    -user-drag: none;
+  }
+
+  input {
+    -webkit-user-select: initial;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body {
+    background-color: #F3F3F3;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 1em;
+    overflow: hidden;
+    overflow-x: hidden;
+  }
+
+
+  header {
+    position: absolute;
+    background: rgb(64, 42, 132);
+    color: antiquewhite;
+    height: 120px;
+    font-size: 30px;
+    text-align: center;
+    padding: 10px 20px;
+    z-index: 99;
+    left: 0;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+  }
+
+  #video-container {
+    width: 100%;
+  }
+
+  #btn-upload-dropdown,
+  #btn-recordings-list-dropdown {
+    width: 100%;
+    position: absolute;
+    top: 120px;
+    right: 0;
+    left: 0;
+    cursor: pointer;
+    overflow-y: auto;
+    background: white;
+    text-align: left;
+    font-size: 18px;
+    z-index: 9999;
+  }
+
+  .visible {
+    display: block !important;
+  }
+
+  #btn-recordings-list {
+    width: 50px;
+  }
+
+  #btn-upload-dropdown div,
+  #btn-recordings-list-dropdown div {
+    padding: 5px 10px;
+  }
+
+  #btn-upload-dropdown div:hover,
+  #btn-recordings-list-dropdown div:hover {
+    background: #9bb2d9;
+  }
+
+  .btn-upload-dropdown-selected {
+    background: #c9c7de !important;
+  }
+
+  #btn-recordings-list {
+    float: left;
+  }
+
+  #btn-recordings-list-dropdown {
+    left: 0px;
+    right: auto;
+    max-height: calc(100% - 120px);
+  }
+
+  .cross-icon,
+  .edit-icon {
+    float: right;
+    width: 22px;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+
+  .cross-icon {
+    margin-left: 15px;
+  }
+
+  #browser-cache .cross-icon {
+    float: none;
+    vertical-align: middle;
+    margin: 0;
+    width: 15px;
+  }
+</style>
+
+<title>RecordRTC Extension</title>
+<link rel="manifest" href="manifest.json">
+<header>
+  <img id="btn-recordings-list" src="images/list-icon.png" title="Lista de grabaciones">
+  <!-- <img id="btn-upload" src="images/upload-icon.png" title="Upload"> -->
+
+  <p style="position: absolute;right: 10%;">
+    <span style="font-size: .6em; margin-left: 20px;" id="file-size" title="Size"></span>
+    <span style="font-size: .6em; margin-left: 20px;" id="file-resolutions" title="Resolutions"></span>
+    <span style="font-size: .6em; margin-left: 20px;" id="file-duration" title="Duration"></span>
+  </p>
+
+  <p>
+    <span id="file-name" title="Nombre de la grabación"></span>
+  </p>
+
+  <span id="browser-cache" style="font-size: 17px"></span>
+</header>
+
+<!-- <div id="btn-upload-dropdown">
+  <div id="btn-php-upload" style="display: none;">Upload to <span style="color: red;">Private Server</span></div>
+  <div id="btn-youtube-upload">Upload to <span style="color: red;">YouTube</span></div>
+</div> -->
+
+<div id="btn-recordings-list-dropdown"></div>
+
+<section style="text-align: center;">
+  <video id="#video-container" controls disable-contextmenu cf-video-load="file"></video>
+</section>
+
+<script src="RecordRTC/DiskStorage.js"></script>
+<script src="background/background.common.js"></script>
+<script src="preview/preview.js"></script>
+<!-- <script src="preview/preview.php.upload.js"></script>
+<script src="preview/preview.youtube.upload.js"></script> -->
+
+<script src="https://apis.google.com/js/client:plusone.js"></script>
